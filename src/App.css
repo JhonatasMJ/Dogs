@@ -9,6 +9,7 @@ body {
     --type-first: Helvetica, Arial, sans-serif; 
     --type-second: 'Spectral', Georgia; 
     font-family: var(--type-first);
+    padding-top: 4rem;
 }
 
 ul, li {
@@ -32,4 +33,8 @@ button, input {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
 }
