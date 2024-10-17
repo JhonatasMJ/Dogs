@@ -8,22 +8,23 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
-    try {
+     event.preventDefault(); 
+     try {
       const response = await fetch("https://dogsapi.origamid.dev/json/jwt-auth/v1/token", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }), //Passo o nome do que vou usar
+        body: JSON.stringify({ username, password }), 
       });
 
       const json = await response.json();
-      console.log(json); // Aqui você pode lidar com o resultado
+      console.log(json); 
 
     } catch (error) {
       console.error("Erro ao fazer login:", error);
-    }
+    } 
+   console.log('sou lindo')
   }
 
   return (
