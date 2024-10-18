@@ -33,3 +33,14 @@
     font-size: .875rem;
     margin-top: .25rem;
 }
+
+.inputError {
+    border-color: red; 
+  }
+
+  .inputError:hover, .inputError:focus  {
+    outline: none;
+    border-color: red; 
+    background: #fff;
+    box-shadow: 0 0 0 3px #ff00002c;
+}

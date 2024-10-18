@@ -1,38 +1,58 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
+import useForm from "../Hooks/useForm";
+import { Helmet } from "react-helmet";
+
+import { UserContext } from "../Context/UserContext";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const username = useForm("usernameSchema");
+  const password = useForm("password");
 
+const {userLogin} = useContext(UserContext) //Pego o userLogin do contexto global
+
+
+
+
+  //Pegar dados do usuario
   async function handleSubmit(event) {
-     event.preventDefault(); 
-     try {
-      const response = await fetch("https://dogsapi.origamid.dev/json/jwt-auth/v1/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }), 
-      });
+    event.preventDefault();
 
-      const json = await response.json();
-      console.log(json); 
-
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
-    } 
-   console.log('sou lindo')
+    // Se for validado, vai fazer o fetch
+    if (username.validate() && password.validate()) {
+      userLogin(username.value, password.value); //Pega do contexto global
+    }
+     
   }
 
   return (
     <section>
+      <Helmet>
+        <title>Dogs | Login</title>
+        <meta name="description" content="Página de Login" />
+      </Helmet>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <Input label="Usuário" type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <Input label="Senha" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <Input
+          label="Usuário"
+          type="text"
+          name="username"
+          value={username.value} 
+          onChange={username.onChange} 
+          {...username}
+          error={username.error} 
+        />
+        <Input
+          label="Senha"
+          type="password"
+          name="password"
+          value={password.value} 
+          onChange={password.onChange} 
+          {...password}
+          error={password.error} //Seta o erro que passei no meu componente de input
+        />
         <Button>Entrar</Button>
       </form>
       <Link to="/login/registro">Cadastro</Link>

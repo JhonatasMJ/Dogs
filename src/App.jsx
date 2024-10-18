@@ -5,17 +5,20 @@ import Footer from "./Components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import { UserStorage } from "./Context/UserContext";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+      <UserStorage> {/* Passei dentro de tudo, então vou ter acesso a ele no meu site todo */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login/*" element={<Login/>} /> {/* o * serve para falar que dentro do login vai ter mais rotas */}
         </Routes>
         <Footer />
+        </UserStorage>
       </BrowserRouter>
     </div>
   );
