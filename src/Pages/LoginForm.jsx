@@ -11,7 +11,7 @@ const LoginForm = () => {
   const username = useForm("usernameSchema");
   const password = useForm("password");
 
-const {userLogin} = useContext(UserContext) //Pego o userLogin do contexto global
+const {userLogin, error, loading} = useContext(UserContext) //Pego o userLogin do contexto global
 
 
 
@@ -53,7 +53,9 @@ const {userLogin} = useContext(UserContext) //Pego o userLogin do contexto globa
           {...password}
           error={password.error} //Seta o erro que passei no meu componente de input
         />
-        <Button>Entrar</Button>
+        {loading ? <Button disabled>Carregando...</Button>:<Button>Entrar</Button> } {/* Se o loading existir, vai deixar o botao com o estilo de carregando  */}
+ 
+        {error &&  <p className="erro">{error}</p> }
       </form>
       <Link to="/login/registro">Cadastro</Link>
     </section>

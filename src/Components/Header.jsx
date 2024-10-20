@@ -6,7 +6,7 @@ import { User } from "lucide-react";
 import { UserContext } from "../Context/UserContext";
 
 const Header = () => {
-  const { data } = useContext(UserContext); // Pegando os dados do usuário do contexto global
+  const { data, userLogout } = useContext(UserContext); // Pegando os dados do usuário do contexto global
 
   return (
     <header className={styles.header}>
@@ -18,6 +18,7 @@ const Header = () => {
         {/* Verifica se há dados do usuário (se está logado) ira exibir o nome do usuário */}
         {data ? (
           <Link to="/conta" className={styles.login}>
+            <button onClick={userLogout}>Sair</button>
             {data.nome}
             <User size={22} color="#333" />
           </Link>
