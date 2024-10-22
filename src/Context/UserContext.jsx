@@ -47,47 +47,44 @@ export const UserStorage = ({ children }) => {
 
   async function userLogin(username, password) {
     try {
-      setError(null);
+      setError(null); // Limpa o erro anterior
       setLoading(true);
-      const { url, options } = TOKEN_POST({ username, password }); // Pega a URL e opções do token
+      const { url, options } = TOKEN_POST({ username, password });
       const response = await fetch(url, options);
       if (!response.ok) {
-        throw new Error("Usuário inválido"); // Força o erro caso a resposta não seja ok
+        throw new Error("Usuário ou senha inválidos"); // Força o erro em caso de resposta 404
       }
       const { token } = await response.json();
-      window.localStorage.setItem("token", token); // Salva o token no localStorage
-      await getUser(token); // Busca os dados do usuário após o login
-      navigate('/conta')
+      window.localStorage.setItem("token", token);
+      await getUser(token);
+      navigate('/conta');
     } catch (err) {
-      setError(err.message); // Captura o erro
-      setLogin(false);
+      setError(err.message); // Seta a mensagem de erro
+      setLogin(false); // Mantém o usuário não logado
     } finally {
-      setLoading(false); // Encerra o estado de carregamento
+      setLoading(false); // Para o estado de carregamento
     }
   }
-
   
   //Função para logar automatico
-  useEffect(() => {
-    async function autoLogin() {
-      const token = window.localStorage.getItem("token"); //Pego o token
-      if (token) {
-        //Se token existir
-
-        try {
-          setError(null);
-          setLoading(true)
-          const { url, options } = TOKEN_VALIDATE_POST(token);
-          const response = await fetch(url, options);
-          if(!response.ok) throw new Error('Token inválido');
-          await getUser(token)
-        } catch (err) {
-          userLogout(); //Reseta o usuario do 0
-        } finally {
-          setLoading(false);
-        }
+  useEffect(() => {async function autoLogin() {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      try {
+        setError(null);
+        setLoading(true);
+        const { url, options } = TOKEN_VALIDATE_POST(token);
+        const response = await fetch(url, options);
+        if (!response.ok) throw new Error("Token inválido");
+        await getUser(token);
+      } catch (err) {
+        setError(err.message);  // Defina o erro aqui
+        userLogout();
+      } finally {
+        setLoading(false);
       }
     }
+  }
     autoLogin();
   }, [userLogout]);
 

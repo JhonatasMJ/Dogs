@@ -15,16 +15,19 @@ const Header = () => {
           <img src={Dog} alt="Logotipo" />
         </Link>
 
-        {/* Verifica se há dados do usuário (se está logado) ira exibir o nome do usuário */}
+        {/* Verifica se há dados do usuário (se está logado) */}
         {data ? (
-          <Link to="/conta" className={styles.login}>
-            <button onClick={userLogout}>Sair</button>
-            {data.nome}
-            <User size={22} color="#333" />
-          </Link>
+          <div className={styles.userSection}>
+            <Link to="/conta" className={styles.login}>
+              {data.nome}
+              <User size={22} color="#333" />
+            </Link>
+            <button onClick={userLogout} className={styles.logoutButton}>
+              Sair
+            </button>
+          </div>
         ) : (
           <Link to="/login" className={styles.login}>
-          
             Login
             <User size={22} color="#333" />
           </Link>

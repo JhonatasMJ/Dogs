@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import { UserStorage } from "./Context/UserContext";
+import Conta from "./Pages/Conta";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login/*" element={<Login/>} /> {/* o * serve para falar que dentro do login vai ter mais rotas */}
+          <Route path="/conta" element={<Conta/>} />
+
         </Routes>
         <Footer />
         </UserStorage>
