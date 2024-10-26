@@ -6,6 +6,7 @@ import { usernameSchema, passwordSchema } from '../Schema/FormSchema';
 const schemas = {
     email: usernameSchema,
     password: passwordSchema,
+  
 
 };
 

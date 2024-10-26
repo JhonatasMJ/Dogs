@@ -38,3 +38,17 @@ export function USER_GET(token) {
         }
     }
 }
+
+//Registrar usuário novo
+export function USER_POST(body) {
+    return { 
+        url: API_URL + '/api/user', //Puxa o usuario
+        options: {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            }, 
+             body: JSON.stringify(body),
+        }
+     }
+ }
