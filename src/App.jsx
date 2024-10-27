@@ -6,8 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import { UserStorage } from "./Context/UserContext";
-import Conta from "./Pages/Conta";
 import ProtectedRoute from "./Routes/ProtectedRoute";
+import Conta from "./Pages/User/Conta";
 
 const App = () => {
   return (
