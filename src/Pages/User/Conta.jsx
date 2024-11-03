@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 
-import Feed from './Feed.jsx'
+import Feed from '../Feed/Feed.jsx'
 import UserFoto from './UserFoto.jsx'
 import UserStats from './UserStats.jsx'
 import UserHeader from './UserHeader.jsx'

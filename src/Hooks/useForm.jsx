@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { z } from 'zod';
-import { usernameSchema, passwordSchema } from '../Schema/FormSchema';
+import { usernameSchema, passwordSchema, numberSchema } from '../Schema/FormSchema';
 
 
 const schemas = {
     email: usernameSchema,
     password: passwordSchema,
+    number: numberSchema
   
 
 };

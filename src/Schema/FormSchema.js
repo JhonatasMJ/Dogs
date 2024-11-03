@@ -9,4 +9,6 @@ export const passwordSchema = z.string()
   .min(3, 'A senha deve ter no mínimo 3 caracteres')
   .nonempty('Este campo é obrigatório')
 
-
+  export const numberSchema = z.string()
+  .regex(/^\d+$/, "Deve conter apenas números")
+  .nonempty('Este campo é obrigatório')
