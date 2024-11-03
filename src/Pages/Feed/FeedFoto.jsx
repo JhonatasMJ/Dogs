@@ -6,7 +6,7 @@ import Loading from '../../Components/UI/Loading';
 import FeedFotoItem from './FeedFotoItem';
 import styles from './FeedFotos.module.css'
 
-const FeedFoto = () => {
+const FeedFoto = ({setModalFoto}) => {
 
   const {data, loading, error, request} = useFetch();
 
@@ -24,7 +24,13 @@ const FeedFoto = () => {
   if (data)
   return (
     <ul className={`${styles.feed} animeLeft`}>
-      {data.map(photo =>  <FeedFotoItem photo={photo} key={photo.id}/>)} {/* Pego todas as fotos */}
+      {data.map(photo => 
+         <FeedFotoItem
+          photo={photo} 
+          key={photo.id} 
+          setModalFoto={setModalFoto}
+          
+          />)} {/* Pego todas as fotos */}
     </ul>
   )
   else return null
