@@ -6,11 +6,18 @@ import Error from '../../Components/UI/Error';
 import Loading from '../../Components/UI/Loading';
 import FotoContent from '../../Components/FotoContent';
 
-const FeedModal = ({photo}) => {
+const FeedModal = ({photo, setModalFoto}) => {
 
   
-  const {data, error, request} = useFetch();
+  const {data, error, request, loading} = useFetch();
 
+
+  //Fecha o modal ao clicar do lado de fora
+  function handleOutsideClick(event){ 
+    if(event.target === event.currentTarget){
+      setModalFoto(null)
+    }
+  }
 
 
   useEffect(() =>{
@@ -19,9 +26,9 @@ const FeedModal = ({photo}) => {
   },[photo, request])
 
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={handleOutsideClick}>
       {error && <Error error={error}/>}
-      {Loading && <Loading/>}
+      {loading && <Loading/>}
       {data && <FotoContent data={data}/>}
     </div>
   )

@@ -1,0 +1,30 @@
+.comments {
+    overflow-y: auto;
+    word-break: break-word;
+    padding: 0 2rem;
+}
+
+.comments li {
+    margin-bottom: .5rem;
+    line-height: 1.2;
+}
+
+
+.comments::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.comments::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+
+.comments::-webkit-scrollbar-thumb {
+    background-color: #fb1; 
+    border-radius: 4px; 
+    border: 2px solid #f1f1f1;
+}
+
+.comments::-webkit-scrollbar-thumb:hover {
+    background-color: #d2a400; 
+}

@@ -7,7 +7,7 @@ const Feed = () => {
 
   return (
     <div>
-      {modalFoto && <FeedModal photo={modalFoto} />}
+      {modalFoto && <FeedModal photo={modalFoto} setModalFoto={setModalFoto}/>}
       <FeedFoto setModalFoto={setModalFoto} /> 
     </div>
   );

@@ -1,90 +1,100 @@
-export const API_URL = 'https://dogsapi.origamid.dev/json'
-export function TOKEN_POST (body) { //função de post da API
-    return { 
-        url: API_URL + '/jwt-auth/v1/token',
-        options: {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-        }
-    }
+export const API_URL = "https://dogsapi.origamid.dev/json";
+export function TOKEN_POST(body) {
+  //função de post da API
+  return {
+    url: API_URL + "/jwt-auth/v1/token",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
 }
 
-
-export function TOKEN_VALIDATE_POST (token) { //função para validar login
-    return { 
-        url: API_URL + '/jwt-auth/v1/token/validate',
-        options: {
-            method: 'POST',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-    
-        }
-    }
+export function TOKEN_VALIDATE_POST(token) {
+  //função para validar login
+  return {
+    url: API_URL + "/jwt-auth/v1/token/validate",
+    options: {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
 }
-
 
 export function USER_GET(token) {
-    return { 
-        url: API_URL + '/api/user', //Puxa o usuario
-        options: {
-            method: 'GET',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            }
-        }
-    }
+  return {
+    url: API_URL + "/api/user", //Puxa o usuario
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
 }
 
 //Registrar usuário novo
 export function USER_POST(body) {
-    return { 
-        url: API_URL + '/api/user', //Puxa o usuario
-        options: {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            }, 
-             body: JSON.stringify(body),
-        }
-     }
- }
+  return {
+    url: API_URL + "/api/user", //Puxa o usuario
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
 
- export function PHOTO_POST(formData, token) {
-    return { 
-        url: API_URL + '/api/photo', //Puxa o usuario
-        options: {
-            method: 'POST',
-            headers: {
-                Authorization: 'Bearer ' + token
-            },
-            body: formData,
-        }
-    }
-}   
+export function PHOTO_POST(formData, token) {
+  return {
+    url: API_URL + "/api/photo", //Puxa o usuario
+    options: {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      body: formData,
+    },
+  };
+}
 
-export function PHOTOS_GET({page, total, user}) {
-    return { 
-        url:  ` ${API_URL}/api/photo/?_page=${page}&_total=${total}&user=${user}`, //Puxa as fotos
-        options: {
-            method: 'GET',
-            cache: 'no-store',
-        }
-    }
-}   
-
+export function PHOTOS_GET({ page, total, user }) {
+  return {
+    url: ` ${API_URL}/api/photo/?_page=${page}&_total=${total}&user=${user}`, //Puxa as fotos
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
 
 export function PHOTO_GET(id) {
-    return { 
-        url:  ` ${API_URL}/api/photo/${id}`, //Puxa as fotos por id
-        options: {
-            method: 'GET',
-            cache: 'no-store',
-        }
+  return {
+    url: ` ${API_URL}/api/photo/${id}`, //Puxa as fotos por id
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+
+export function COMMENT_POST(id, body) {
+  return {
+    url: ` ${API_URL}/api/comment/${id}`,
+    options: {
+      method: "POST",
+      headers: {
+       "Content-Type": "application/json",
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
+      },
+      body: JSON.stringify(body),
     }
-}   
-
-
+ }
+}

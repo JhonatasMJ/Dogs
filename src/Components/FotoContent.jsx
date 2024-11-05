@@ -3,6 +3,7 @@ import styles from '../Components/FotoContent.module.css'
 
 import FotoComentarios from './FotoComentarios';
 import { Link } from 'react-router-dom';
+import { Eye } from 'lucide-react';
 
 const FotoContent = ({data}) => {
 
@@ -15,9 +16,12 @@ const FotoContent = ({data}) => {
         </div>
         <div className={styles.details}>
             <div>
-                <p> 
+                <p className={styles.author}> 
                     <Link to={`/perfil/${photo.author}`}> @{photo.author} </Link>  
-                    <span className={styles.visualizacao}>{photo.acessos}</span>
+                    <span className={styles.visualizacao}>
+                        <Eye size={16}/>
+                        {photo.acessos}
+                        </span>
                 </p>
                 <h1 className='title'>
                     <Link to={`/fotos/${photo.id}`}>{photo.title}</Link>
