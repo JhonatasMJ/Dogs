@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 
-import Enviar from '../Assets/enviar.svg?react'
-import useFetch from '../Hooks/useFetch'
-import { COMMENT_POST } from '../Utils/Api'
-import Error from './UI/Error'
+import Enviar from '../../Assets/enviar.svg?react'
+import useFetch from '../../Hooks/useFetch'
+import { COMMENT_POST } from '../../Utils/Api'
+import Error from '../UI/Error'
 import styles from './FotoComentariosForm.module.css'
 
 const FotoComentariosForm = ({id, setComments}) => {

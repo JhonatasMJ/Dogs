@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { UserContext } from "../Context/UserContext";
+import { UserContext } from "../../Context/UserContext";
 import FotoComentariosForm from "./FotoComentariosForm";
 import styles from "./FotoComentarios.module.css";
 
