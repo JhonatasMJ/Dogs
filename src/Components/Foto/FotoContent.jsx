@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Eye } from 'lucide-react';
 import { UserContext } from '../../Context/UserContext';
 import FotoDelete from './FotoDelete';
+import Image from '../UI/Image';
 
 const FotoContent = ({data}) => {
     const user = useContext(UserContext)
@@ -14,7 +15,8 @@ const FotoContent = ({data}) => {
   return (
     <div className={styles.foto}>
         <div className={styles.img}>
-            <img src={photo.src} alt={photo.title} />
+            <Image src={photo.src} alt={photo.title} />
+       
         </div>
         <div className={styles.details}>
             <div>

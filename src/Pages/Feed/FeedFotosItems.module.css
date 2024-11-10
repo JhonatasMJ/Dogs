@@ -21,7 +21,7 @@
 }
 
 
-.foto img {
+.foto > div {
     grid-area: 1/1;
  
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../Feed/FeedFotosItems.module.css'
 import { Eye } from 'lucide-react'
+import Image from '../../Components/UI/Image';
 
 const FeedFotoItem = ({photo, setModalFoto}) => {
 
@@ -12,7 +13,7 @@ const FeedFotoItem = ({photo, setModalFoto}) => {
   return (
    
       <li className={styles.foto} onClick={handleClick}>
-        <img src={photo.src} alt={photo.title} /> {/* Pego a foto */}
+        <Image src={photo.src} alt={photo.title} /> {/* Pego a foto */}
         <span>{photo.acessos}
           <Eye color='#fff' size={18}/>
           </span>  {/* Pego a quantidade de acessos */}
