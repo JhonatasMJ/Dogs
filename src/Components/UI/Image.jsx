@@ -15,7 +15,7 @@ const [skeleton, setSkeleton] = useState(true);
   return (
     <div className={styles.wrapper}>
         {skeleton  &&  <div className={styles.skeleton}></div>}
-        <img onLoad={handleLoad}  className={styles.img}  alt="" {...props} />
+        <img onLoad={handleLoad}  className={styles.img}  {...props} />
     </div>
   )
 }
