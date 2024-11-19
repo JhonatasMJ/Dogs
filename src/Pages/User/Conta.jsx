@@ -6,6 +6,7 @@ import UserFoto from './UserFoto.jsx'
 import UserStats from './UserStats.jsx'
 import UserHeader from './UserHeader.jsx'
 import { UserContext } from '../../Context/UserContext.jsx'
+import NotFound from '../../Components/UI/NotFound.jsx'
 
 const Conta = () => {
 
@@ -18,6 +19,7 @@ const Conta = () => {
         <Route path='/' element={<Feed user={data.id}/>}/>
         <Route path='postar' element={<UserFoto/>}/>
         <Route path='estatisticas' element={<UserStats/>}/>
+        <Route path="*" element={<NotFound/>} /> 
       </Routes>
     </section>
 

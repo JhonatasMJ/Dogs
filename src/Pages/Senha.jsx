@@ -1,11 +1,46 @@
-import React from 'react'
+import React from "react";
+import Input from "../Components/Input";
+import Button from "../Components/Button";
+import useForm from "../Hooks/useForm";
+import useFetch from "../Hooks/useFetch";
+import { PERDEU_SENHA } from "../Utils/Api";
+import Error from "../Components/UI/Error";
 
-const Senha = () => {
+const LoginSenha = () => {
+  const login = useForm();
+  const { data, loading, error, request } = useFetch();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (login.validate()) {
+      const { url, options } = PERDEU_SENHA({
+        login: login.value,
+        url: window.location.href.replace("senha", "resetar"),
+      });
+      const { json } = await request(url, options);
+    }
+  }
+
   return (
-    <div>
-      Senha
-    </div>
-  )
-}
+    <section className="mainContainer">
+      <h1 className="title">Perdeu a senha?</h1>
+      {data ? (
+        <p style={{color: '#4c1'}}>{data}</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <Input label="Email/ Usuario" type="text" name="login" {...login} />
+          {loading ? (
+            <Button disabled>Enviando...</Button>
+          ) : (
+            <Button> Enviar Email</Button>
+          )}
+        </form>
+      )}
 
-export default Senha
+      <Error error={error} />
+    </section>
+  );
+};
+
+export default LoginSenha;

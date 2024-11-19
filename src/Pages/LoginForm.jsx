@@ -60,7 +60,7 @@ const LoginForm = () => {
         )}{" "}
  <Error error={error} />
       </form>
-      <Link className={styles.perdeu} to="/login/resetar">
+      <Link className={styles.perdeu} to="/login/senha">
         Perdeu a senha?
       </Link>
       <div className={styles.cadastro}>

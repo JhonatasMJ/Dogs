@@ -8,12 +8,12 @@ import { UserContext } from '../../Context/UserContext';
 import FotoDelete from './FotoDelete';
 import Image from '../UI/Image';
 
-const FotoContent = ({data}) => {
+const FotoContent = ({data,single}) => {
     const user = useContext(UserContext)
     const {photo, comments} = data;
 
   return (
-    <div className={styles.foto}>
+    <div className={`${styles.foto} ${single ? styles.single : ''}`}>
         <div className={styles.img}>
             <Image src={photo.src} alt={photo.title} />
        
@@ -32,7 +32,7 @@ const FotoContent = ({data}) => {
                         </span>
                 </p>
                 <h1 className='title'>
-                    <Link to={`/fotos/${photo.id}`}>{photo.title}</Link>
+                    <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
                 </h1>
                 <ul className={styles.attributes}>
                     <li>{photo.peso} kg</li>
@@ -40,7 +40,7 @@ const FotoContent = ({data}) => {
                 </ul>
             </div>
         </div>
-        <FotoComentarios id={photo.id} comments={comments}/>
+        <FotoComentarios single={single} id={photo.id} comments={comments}/>
     </div>
   )
 }

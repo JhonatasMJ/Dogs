@@ -9,6 +9,9 @@
     line-height: 1.2;
 }
 
+.single.comments { 
+    padding: 0px;
+}
 
 .comments::-webkit-scrollbar {
     width: 8px; 

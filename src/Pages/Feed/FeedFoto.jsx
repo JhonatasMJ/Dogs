@@ -6,19 +6,19 @@ import Loading from '../../Components/UI/Loading';
 import FeedFotoItem from './FeedFotoItem';
 import styles from './FeedFotos.module.css'
 
-const FeedFoto = ({page,user,setModalFoto, setInfinite}) => {
+const FeedFoto = ({page,user, setModalFoto, setInfinite}) => {
 
   const {data, loading, error, request} = useFetch();
 
   useEffect(() =>{
     async function fetchPhotos() {
-      const total = 3
+      const total = 6
       const {url, options} = PHOTOS_GET({page, total, user}); //Puxa as fotos
       const  {response, json} = await request(url, options)
       if (response && response.ok && json.length < total  ) setInfinite(false) 
     }
     fetchPhotos()
-  },[request, user, page])
+  },[request, user, page, setInfinite])
 
 
   if(error) return <Error error={error}/>

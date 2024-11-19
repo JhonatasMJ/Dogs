@@ -6,6 +6,7 @@ import Senha from './Senha';
 import Resetar from './Resetar';
 import { UserContext } from '../Context/UserContext';
 import styles from './Login.module.css';
+import NotFound from '../Components/UI/NotFound';
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -22,6 +23,7 @@ const Login = () => {
           <Route path="/registro" element={<Registro />} /> {/* Página de cadastro */}
           <Route path="/senha" element={<Senha />} /> {/* Esqueceu a senha */}
           <Route path="/resetar" element={<Resetar />} /> {/* Resetar senha */}
+          <Route path="*" element={<NotFound/>} /> 
         </Routes>
       </div>
     </section>
