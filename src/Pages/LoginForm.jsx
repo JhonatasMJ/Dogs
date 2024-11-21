@@ -48,6 +48,7 @@ const LoginForm = () => {
           type="password"
           name="password"
           value={password.value}
+          placeholder="Insira seu nome ou email"
           onChange={password.onChange}
           {...password}
           error={password.error} //Seta o erro que passei no meu componente de input

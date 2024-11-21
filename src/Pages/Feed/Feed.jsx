@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FeedModal from "./FeedModal";
 import FeedFoto from "./FeedFoto";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
 
 const Feed = ({ user }) => {
   const [modalFoto, setModalFoto] = useState(null);
@@ -33,6 +34,10 @@ const Feed = ({ user }) => {
 
   return (
     <div>
+        <Helmet>
+        <title>Dogs | Feed </title>
+        <meta name="description" content="Página de Login" />
+      </Helmet>
       {modalFoto && <FeedModal photo={modalFoto} setModalFoto={setModalFoto} />}
       {pages.map((page) => (
         <FeedFoto

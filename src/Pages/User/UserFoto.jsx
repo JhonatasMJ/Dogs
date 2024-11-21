@@ -7,6 +7,7 @@ import useForm from "../../Hooks/useForm";
 import useFetch from "../../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 import { PHOTO_POST } from "../../Utils/Api";
+import { Helmet } from "react-helmet";
 
 const UserFoto = () => {
   const nome = useForm("nome");
@@ -48,6 +49,10 @@ const UserFoto = () => {
 
   return (
     <section className={`${styles.fotoPost} animeLeft`}>
+        <Helmet>
+        <title>Dogs | Postar </title>
+        <meta name="description" content="Página de Login" />
+      </Helmet>
       <form onSubmit={handleSubmit}>
         <Input
           label="Nome"
