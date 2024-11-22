@@ -14,10 +14,11 @@ import NotFound from "./Components/UI/NotFound";
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <BrowserRouter>
       <UserStorage> {/* Passei dentro de tudo, então vou ter acesso a ele no meu site todo */}
         <Header />
+        <main className="appBody">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/foto/:id" element={<Foto />} />
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/perfil/:user" element={<UserPerfil/>} /> 
           <Route path="*" element={<NotFound/>} /> 
         </Routes>
+        </main>
         <Footer />
         </UserStorage>
       </BrowserRouter>
