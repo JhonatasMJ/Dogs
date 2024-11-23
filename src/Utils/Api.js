@@ -145,3 +145,15 @@ export function RESETAR_SENHA(body) {
     }
   }
 }
+
+export function STATES_GET() {
+  return {
+    url: API_URL + '/api/stats',
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
+       },
+    }
+  }
+}

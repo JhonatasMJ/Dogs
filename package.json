@@ -18,6 +18,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.27.0",
     "router-dom": "^3.0.1",
+    "victory": "^37.3.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
