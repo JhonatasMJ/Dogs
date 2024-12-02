@@ -11,7 +11,7 @@ const LoginSenha = () => {
     }
 
   return (
-    <section>
+    <section className='animeLeft'>
         <h1 className='titlte'>Perdeu a senha?</h1>
         <form  onSubmit={handleSubmit}>
             <Input

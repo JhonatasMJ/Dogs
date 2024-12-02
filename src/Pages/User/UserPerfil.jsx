@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+ import { useParams } from 'react-router-dom';
 import Feed from '../Feed/Feed';
 import Helmet from 'react-helmet';
 
 const UserPerfil = () => {
-  const [searchParams] = useSearchParams();
-  const user = searchParams.get('user'); // Obtém o valor do parâmetro 'user'
+
+  const { user } = useParams();
 
   return (
     <section className="container mainContainer">

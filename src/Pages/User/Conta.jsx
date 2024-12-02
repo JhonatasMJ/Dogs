@@ -10,7 +10,8 @@ import NotFound from '../../Components/UI/NotFound.jsx'
 
 const Conta = () => {
 
-  const {data} = useContext(UserContext)
+  const {data} = useContext(UserContext);
+  console.log('User ID:', data.id);
 
   return (
     <section className='container'>

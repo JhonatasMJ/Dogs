@@ -1,7 +1,7 @@
 import  { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import useFetch from '../../Hooks/useFetch';
-import { PHOTO_GET2 } from '../../Utils/Api';
+import { PHOTO_GET } from '../../Utils/Api';
 import Error from '../UI/Error';
 import Loading from '../UI/Loading';
 import FotoContent from './FotoContent';
@@ -12,9 +12,9 @@ const Foto = () => {
    const {data, loading, error, request} = useFetch()
 
    useEffect(() => {
-    const {url, options} = PHOTO_GET2(id);
+    const {url, options} = PHOTO_GET(id);
     request (url, options)
-   }, [id, request]) 
+   }, [request,id]) 
 
 
    if(error) return <Error error={error}/>;

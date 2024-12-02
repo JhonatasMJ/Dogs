@@ -67,7 +67,7 @@ export function PHOTO_POST(formData, token) {
 
 export function PHOTOS_GET({ page, total, user }) {
   return {
-    url: ` ${API_URL}/api/photo/?_page=${page}&_total=${total}&user=${user}`, //Puxa as fotos
+    url: ` ${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`, //Puxa as fotos
     options: {
       method: "GET",
       cache: "no-store",
@@ -85,13 +85,7 @@ export function PHOTO_GET(id) {
   };
 }
 
-export function PHOTO_GET2(id) {
-  return {
-    url: ` ${API_URL}/api/photo/${id}`,
-    options: {
-    }
- }
-}
+
 
 export function COMMENT_POST(id, body) {
   return {

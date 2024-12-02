@@ -5,6 +5,7 @@
     margin-bottom: 2rem;
 }
 
+
 .file{
     margin-bottom: 1rem;
 }
@@ -20,4 +21,9 @@
     display: block;
     height: 0px;
     padding-bottom: 100%;
+}
+@media(max-width: 40rem) {
+    .fotoPost { 
+        grid-template-columns: 1fr;
+    }
 }

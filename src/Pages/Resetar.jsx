@@ -37,7 +37,7 @@ const Resetar = () => {
   }
 
   return (
-    <div>
+    <section className="animeLeft">
       <h1 className="title">Resete a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
@@ -53,7 +53,7 @@ const Resetar = () => {
         )}
       </form>
       <Error error={error} />
-    </div>
+    </section>
   );
 };
 
